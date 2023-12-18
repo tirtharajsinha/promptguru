@@ -7,12 +7,7 @@ import Profile from "@components/Profile";
 
 const MyProfile = ({ params }) => {
   const router = useRouter();
-  const { data: session, status } = useSession({
-    required: true,
-    onUnauthenticated() {
-      router.push("/");
-    },
-  });
+  const { data: session, status } = useSession();
   const userId = params.userId;
   console.log(userId);
   const [posts, setPosts] = useState([]);

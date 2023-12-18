@@ -3,6 +3,7 @@ import NextAuth from "next-auth";
 import GoogleProvider from 'next-auth/providers/google'
 import CredentialsProvider from "next-auth/providers/credentials";
 import User from "@models/user";
+import bcrypt from 'bcrypt';
 
 const handler = NextAuth({
     providers: [
@@ -14,10 +15,14 @@ const handler = NextAuth({
                     email: credentials.email
                 })
 
+                console.log(user);
+
                 if (user) {
+                    console.log(user.password, credentials.password);
                     if (user.password) {
-                        if (user.password === credentials.password) {
-                            return user
+                        const passwordMatches = await bcrypt.compare(credentials.password, user.password);
+                        if (passwordMatches) {
+                            return user;
                         }
                         else {
                             throw new Error("Wrong Password");
@@ -44,7 +49,8 @@ const handler = NextAuth({
         })
     ],
     pages: {
-        error: '/api/auth/signin', // Error code passed in query string as ?error=
+        signin: '/auth/signin',
+        error: '/auth/signin', // Error code passed in query string as ?error=
         newUser: '/login' // If set, new users will be directed here on first sign in
     },
     callbacks: {

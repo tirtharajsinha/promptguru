@@ -56,7 +56,7 @@ const Nav = () => {
         ) : (
           <>
             {providers ? (
-              <Link href="/api/auth/signin" className="black_btn">
+              <Link href="/auth/signin" className="black_btn">
                 Sign In
               </Link>
             ) : (
@@ -109,7 +109,7 @@ const Nav = () => {
         ) : (
           <>
             {providers ? (
-              <Link href="/api/auth/signin" className="black_btn">
+              <Link href="/auth/signin" className="black_btn">
                 Sign In
               </Link>
             ) : (
