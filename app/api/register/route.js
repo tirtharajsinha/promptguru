@@ -31,7 +31,7 @@ export const POST = async (request) => {
                 return new Response(JSON.stringify(UserExists), { status: 200 });
             }
             else {
-                return new Response("User exists", { status: 200 });
+                return new Response(JSON.stringify({ "message": "User Already exists." }), { status: 500 });
             }
         }
 

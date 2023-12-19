@@ -29,7 +29,7 @@ const Nav = () => {
           height={30}
           className="object-contain"
         />
-        <p className="logo_text">PrompGuru</p>
+        <p className="logo_text">PromptGuru</p>
       </Link>
 
       {/* desktop Nevigation */}

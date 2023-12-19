@@ -9,7 +9,7 @@ const home = () => {
         <span className="blue_gradient text-center"> AI-Powered Prompts</span>
       </h1>
       <p className="desc text-center">
-        PrompGuru is a an open-source AI prompting tool for modern world to
+        PromptGuru is a an open-source AI prompting tool for modern world to
         discover, create and share creative prompts
       </p>
       <Feed />
